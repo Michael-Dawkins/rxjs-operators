@@ -33,9 +33,9 @@ const data3Reccurent$ = timer(0, 4000);
 // simlate issue with withLatestFrom
 // it drops the slow observables that were subscribed to earl once source starts
 // AND it is missing a take(1) behaviour
-/*
+
 of(0)
-  .pipe(delay(5000))
+  .pipe(delay(3000))
   .pipe(
     tap(() => console.log('emission in chain')),
     withLatestFrom(
@@ -48,9 +48,8 @@ of(0)
   .subscribe(() => {
     console.log('subscriber was called');
   });
-  */
 
-timer(5000, 20000)
+/*timer(5000, 20000)
   .pipe(delay(5000))
   .pipe(
     tap((v) => console.log('emission in chain: ', v)),
@@ -74,7 +73,7 @@ timer(5000, 20000)
         '  data3Reccurent: ' +
         data3Reccurent
     );
-  });
+  });*/
 
 export function switchToLatest<A extends readonly unknown[]>(
   observables: readonly [...ObservableInputTuple<A>]
